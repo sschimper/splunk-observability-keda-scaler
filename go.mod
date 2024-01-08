@@ -52,7 +52,7 @@ require (
 	github.com/google/uuid v1.3.1
 	github.com/gophercloud/gophercloud v1.6.0
 	github.com/hashicorp/vault/api v1.10.0
-	github.com/influxdata/influxdb-client-go/v2 v2.12.3
+	github.com/influxdata/influxdb-client-go/v2 v2.13.0
 	github.com/jackc/pgx/v5 v5.4.3
 	github.com/joho/godotenv v1.5.1
 	github.com/microsoft/ApplicationInsights-Go v0.4.4
@@ -107,6 +107,8 @@ require (
 	sigs.k8s.io/custom-metrics-apiserver v1.28.0
 	sigs.k8s.io/kustomize/kustomize/v5 v5.1.1
 )
+
+require github.com/oapi-codegen/runtime v1.0.0 // indirect
 
 replace (
 	// we need a version with license
@@ -175,7 +177,6 @@ require (
 	github.com/coreos/go-semver v0.3.1 // indirect
 	github.com/coreos/go-systemd/v22 v22.5.0 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/deepmap/oapi-codegen v1.12.4 // indirect
 	github.com/devigned/tab v0.1.1 // indirect
 	github.com/dgryski/go-rendezvous v0.0.0-20200823014737-9f7001d12a5f // indirect
 	github.com/dimchansky/utfbom v1.1.1 // indirect
@@ -255,7 +256,7 @@ require (
 	github.com/mailru/easyjson v0.7.7 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-ieproxy v0.0.10 // indirect
-	github.com/mattn/go-isatty v0.0.17 // indirect
+	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.4 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
