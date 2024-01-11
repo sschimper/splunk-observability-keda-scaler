@@ -159,16 +159,18 @@ func parseAzureDataExplorerAuthParams(config *ScalerConfig, logger logr.Logger) 
 		}
 		metadata.ClientID = clientID
 
-		var clientSecret string
-		if val, ok := config.AuthParams["clientSecret"]; ok && val != "" {
-			clientSecret = val
-		} else if val, ok = config.TriggerMetadata["clientSecretFromEnv"]; ok && val != "" {
-			clientSecret = val
-		} else {
-			return nil, fmt.Errorf("error parsing metadata. Details: clientSecret was not found in metadata. Check your ScaledObject configuration")
+		// FIXME: DEPRECATED to be removed in v2.13
+		// We should get the secret only from AuthConfig or env
+		clientSecret, err := getParameterFromConfig(config, "clientSecret", true)
+		if err != nil {
+			return nil, err
 		}
-		metadata.ClientSecret = clientSecret
+		if val, ok := config.TriggerMetadata["clientSecret"]; ok && val != "" {
+			logger.Info("getting 'clientSecret' from metadata is deprecated, use 'clientSecretFromEnv' or TriggerAuthentication instead")
+		}
+		// FIXME: DEPRECATED to be removed in v2.13
 
+		metadata.ClientSecret = clientSecret
 	default:
 		return nil, fmt.Errorf("error parsing auth params")
 	}
